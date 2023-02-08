@@ -1,5 +1,6 @@
 import collections
 from utils import *
+from node import *
 
 # for some reason, the professor defined the goal state as this:
 # +---+---+---+
@@ -21,27 +22,21 @@ from utils import *
 GOAL_STATE = '7816*2543'
 MAX_DEPTH = 10
 
-# TODO: implement node class (data structure with state, parent, action, path cost, and depth)
-
 
 def dfs(start_state):
     """
-    DFS with a depth limit of 10.
+    Tree search version of DFS with a depth limit of 10.
     """
-    stack = [(start_state, 0, [])]
-    visited = {start_state}
+    stack = [(Node(state=start_state, parent=None, path_cost=1, depth=0), 0, [])]
     enqueued_states = 0
 
     while stack:
-        curr_state, moves, path_to_goal = stack.pop()
-        if curr_state == GOAL_STATE:
-            return moves, enqueued_states, path_to_goal + [curr_state]
+        curr_node, moves, path_to_goal = stack.pop()
+        if curr_node.state == GOAL_STATE:
+            return moves, enqueued_states, path_to_goal + [curr_node.state]
         # if moves > MAX_DEPTH:
         #     return -1, enqueued_states, path_to_goal
         for next_state in get_successors(curr_state):
-            if next_state in visited:
-                continue
-            visited.add(next_state)
             stack.append((next_state, moves + 1, path_to_goal + [curr_state]))
             enqueued_states += 1
 
