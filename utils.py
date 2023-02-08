@@ -25,7 +25,7 @@ def get_successors(state):
     """
     Function that returns the successor states of a given state.
     A successor state is found by sliding a single tile into the empty space.
-    States are represented as strings so they can be put into python sets.
+    States are represented as strings b/c strings are hashable (i.e., they can be added to python sets).
     For example, the following state
         +---+---+---+
         | 6 | 7 | 1 |

@@ -30,16 +30,16 @@ def dfs(start_state):
     enqueued_states = 0
 
     while stack:
-        state, moves, path_to_goal = stack.pop()
-        if state == GOAL_STATE:
-            return moves, enqueued_states, path_to_goal
+        curr_state, moves, path_to_goal = stack.pop()
+        if curr_state == GOAL_STATE:
+            return moves, enqueued_states, path_to_goal + [curr_state]
         # if moves > MAX_DEPTH:
         #     return -1, enqueued_states, path_to_goal
-        for next_state in get_successors(state):
+        for next_state in get_successors(curr_state):
             if next_state in visited:
                 continue
             visited.add(next_state)
-            stack.append((next_state, moves + 1, path_to_goal + [state]))
+            stack.append((next_state, moves + 1, path_to_goal + [curr_state]))
             enqueued_states += 1
 
     return -1, enqueued_states, path_to_goal
@@ -54,14 +54,14 @@ def bfs(start_state):
     enqueued_states = 0
 
     while queue:
-        state, moves, path_to_goal = queue.popleft()
-        if state == GOAL_STATE:
-            return moves, enqueued_states, path_to_goal
-        for next_state in get_successors(state):
+        curr_state, moves, path_to_goal = queue.popleft()
+        if curr_state == GOAL_STATE:
+            return moves, enqueued_states, path_to_goal + [curr_state]
+        for next_state in get_successors(curr_state):
             if next_state in visited:
                 continue
             visited.add(next_state)
-            queue.append((next_state, moves + 1, path_to_goal + [state]))
+            queue.append((next_state, moves + 1, path_to_goal + [curr_state]))
             enqueued_states += 1
 
     return -1, enqueued_states, path_to_goal

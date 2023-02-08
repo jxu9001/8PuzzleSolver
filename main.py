@@ -21,6 +21,7 @@ def main():
     elif algorithm_name == 'bfs':
         moves, enqueued_states, path_to_goal = bfs(start_state)
     pretty_print(moves, enqueued_states, path_to_goal)
+    # print(path_to_goal)
 
 
 if __name__ == "__main__":
