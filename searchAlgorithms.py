@@ -65,3 +65,5 @@ def bfs(start_state):
             enqueued_states += 1
 
     return -1, enqueued_states, path_to_goal
+
+
