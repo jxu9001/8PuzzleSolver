@@ -17,6 +17,7 @@ from utils import *
 # +---+---+---+
 # | 7 | 8 |   |
 # +---+---+---+
+
 GOAL_STATE = '7816*2543'
 MAX_DEPTH = 10
 

@@ -1,6 +1,6 @@
 def pretty_print(moves, enqueued_states, path_to_goal):
     """
-    Pretty prints the path from the start state to the goal state
+    Pretty prints the path from the start state to the goal state.
     """
     n = len(path_to_goal)
     print('Input (Any random position of the tiles):\n')
