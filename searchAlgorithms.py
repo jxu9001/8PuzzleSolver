@@ -20,6 +20,8 @@ from utils import *
 GOAL_STATE = '7816*2543'
 MAX_DEPTH = 10
 
+# TODO: implement node class (data structure with state, parent, action, path cost, and depth)
+
 
 def dfs(start_state):
     """
