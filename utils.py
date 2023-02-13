@@ -1,4 +1,6 @@
 import collections
+MAX_DEPTH = 10
+GOAL_STATE = '7816*2543'
 
 
 def pretty_print(goal_node, num_enqueued_states):
@@ -6,9 +8,7 @@ def pretty_print(goal_node, num_enqueued_states):
     Pretty prints the path from the start state to the goal state.
     """
     if goal_node == -1:
-        print('ERROR: Failed to find a solution at or before depth = 10')
-    elif goal_node == -2:
-        print('ERROR: This initial state is unsolvable')
+        print('ERROR: Failed to find a solution at or before depth = {}'.format(MAX_DEPTH))
     else:
         path_to_goal = collections.deque()
         while goal_node is not None:
@@ -71,29 +71,30 @@ def get_successors(state):
         yield next_state
 
 
-def heuristic1(state):
+def heuristic1(state, goal_state=GOAL_STATE):
     """
     Heuristic 1: number of misplaced tiles
     Note that the blank tile is not actually a tile so we don't count it
     """
-    return sum(t1 != t2 for t1, t2 in zip(state, '7816*2543') if t1.isdigit())
+    return sum(t1 != t2 for t1, t2 in zip(state, goal_state) if t1.isdigit())
 
 
-def heuristic2(state):
+def heuristic2(state, goal_state=GOAL_STATE):
     """
     Heuristic 2: sum of manhattan distances from each tile's curr position to its goal position
     Note that the blank tile is not actually a tile so we don't count it
     """
+    # formula to convert 1d array index to 2d array index when 2d array has dims num_rows, num_cols
+    # i = 1d // num_cols, j = 1d % num_rows
     goal_pos = {
-        '1': (0, 2),
-        '2': (1, 2),
-        '3': (2, 2),
-        '4': (2, 1),
-        '5': (2, 0),
-        '6': (1, 0),
-        '7': (0, 0),
-        '8': (0, 1)
+        '1': (goal_state.find('1') // 3, goal_state.find('1') % 3),
+        '2': (goal_state.find('2') // 3, goal_state.find('2') % 3),
+        '3': (goal_state.find('3') // 3, goal_state.find('3') % 3),
+        '4': (goal_state.find('4') // 3, goal_state.find('4') % 3),
+        '5': (goal_state.find('5') // 3, goal_state.find('5') % 3),
+        '6': (goal_state.find('6') // 3, goal_state.find('6') % 3),
+        '7': (goal_state.find('7') // 3, goal_state.find('7') % 3),
+        '8': (goal_state.find('8') // 3, goal_state.find('8') % 3)
     }
-    # 1d arr index to 2d arr index when 2d arr has dims numRows, numCols
-    # i = 1d // numCols, j = 1d % numCols
+
     return sum(abs(i // 3 - goal_pos[t][0]) + abs(i % 3 - goal_pos[t][1]) for i, t in enumerate(state) if t.isdigit())

@@ -2,8 +2,6 @@ from utils import *
 from node import *
 import heapq
 
-MAX_DEPTH = 10
-
 
 def dfs(root, max_depth=MAX_DEPTH):
     """
@@ -15,7 +13,7 @@ def dfs(root, max_depth=MAX_DEPTH):
 
     while stack:
         curr_node = stack.pop()
-        if curr_node.state == '7816*2543':
+        if curr_node.state == GOAL_STATE:
             return curr_node, num_enqueued_states
         if curr_node.depth > max_depth:
             return -1, num_enqueued_states
@@ -26,7 +24,7 @@ def dfs(root, max_depth=MAX_DEPTH):
                 stack.append(next_node)
                 num_enqueued_states += 1
 
-    return -2, num_enqueued_states
+    return -1, num_enqueued_states
 
 
 def bfs(root):
@@ -40,7 +38,7 @@ def bfs(root):
 
     while queue:
         curr_node = queue.popleft()
-        if curr_node.state == '7816*2543':
+        if curr_node.state == GOAL_STATE:
             return curr_node, num_enqueued_states
         for next_state in get_successors(curr_node.state):
             if next_state not in expanded_states:
@@ -49,7 +47,7 @@ def bfs(root):
                 queue.append(next_node)
                 num_enqueued_states += 1
 
-    return -2, num_enqueued_states
+    return -1, num_enqueued_states
 
 
 def ids(root, max_depth=MAX_DEPTH):
@@ -64,7 +62,7 @@ def ids(root, max_depth=MAX_DEPTH):
         expanded_states = {root.state}
         while stack:
             curr_node = stack.pop()
-            if curr_node.state == '7816*2543':
+            if curr_node.state == GOAL_STATE:
                 return curr_node, num_enqueued_states
             # ONLY ENQUEUE SUCCESSOR STATES IF CURR STATE'S DEPTH IS BELOW THE CURR DEPTH LIMIT
             if curr_node.depth < depth:
@@ -89,7 +87,7 @@ def astar1(root, max_depth=MAX_DEPTH):
 
     while priority_queue:
         _, curr_node = heapq.heappop(priority_queue)
-        if curr_node.state == '7816*2543':
+        if curr_node.state == GOAL_STATE:
             return curr_node, num_enqueued_states
         if curr_node.depth > max_depth:
             return -1, num_enqueued_states
@@ -103,7 +101,7 @@ def astar1(root, max_depth=MAX_DEPTH):
                 heapq.heappush(priority_queue, (curr_node.depth + 1 + heuristic1(next_state), next_node))
                 num_enqueued_states += 1
 
-    return -2, num_enqueued_states
+    return -1, num_enqueued_states
 
 
 def astar2(root, max_depth=MAX_DEPTH):
@@ -118,7 +116,7 @@ def astar2(root, max_depth=MAX_DEPTH):
 
     while priority_queue:
         _, curr_node = heapq.heappop(priority_queue)
-        if curr_node.state == '7816*2543':
+        if curr_node.state == GOAL_STATE:
             return curr_node, num_enqueued_states
         if curr_node.depth > max_depth:
             return -1, num_enqueued_states
@@ -132,4 +130,4 @@ def astar2(root, max_depth=MAX_DEPTH):
                 heapq.heappush(priority_queue, (curr_node.depth + 1 + heuristic2(next_state), next_node))
                 num_enqueued_states += 1
 
-    return -2, num_enqueued_states
+    return -1, num_enqueued_states
