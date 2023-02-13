@@ -2,104 +2,104 @@ from utils import *
 from node import *
 import heapq
 
-GOAL_STATE = '7816*2543'
-MAX_DEPTH = 10
 
-
-def dfs(root):
+def dfs(root, max_depth=10):
     """
-    Tree (graph?) search version of DFS with a depth limit of 10.
-    OR CAN WE USE GRAPH CAUSE TREE IS TOO ANNOYING (E.G. CYCLES)
+    Depth-first search with a depth limit of 10
     """
     stack = [root]
     expanded_states = {root.state}
-    enqueued_states = 0
+    num_enqueued_states = 0
 
     while stack:
         curr_node = stack.pop()
-        if curr_node.state == GOAL_STATE:
-            return curr_node, enqueued_states
-        if curr_node.depth > MAX_DEPTH:
-            return -1, enqueued_states
-        for next_state, step_cost in get_successors(curr_node.state):
+        if curr_node.state == '7816*2543':
+            return curr_node, num_enqueued_states
+        if curr_node.depth > max_depth:
+            return -1, num_enqueued_states
+        for next_state in get_successors(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
-                next_node = Node(next_state, curr_node, curr_node.path_cost + step_cost, curr_node.depth + 1)
+                next_node = Node(next_state, curr_node, curr_node.depth + 1)
                 stack.append(next_node)
-                enqueued_states += 1
+                num_enqueued_states += 1
 
-    return -2, enqueued_states
+    return -2, num_enqueued_states
 
 
 def bfs(root):
     """
-    Simple implementation of breadth-first search.
+    Breadth-first search with no depth limit
+    (not actually required, but useful for sanity checking)
     """
     queue = collections.deque([root])
     expanded_states = {root.state}
-    enqueued_states = 0
+    num_enqueued_states = 0
 
     while queue:
         curr_node = queue.popleft()
-        if curr_node.state == GOAL_STATE:
-            return curr_node, enqueued_states
-        if curr_node.depth > MAX_DEPTH:
-            return -1, enqueued_states
-        for next_state, step_cost in get_successors(curr_node.state):
+        if curr_node.state == '7816*2543':
+            return curr_node, num_enqueued_states
+        for next_state in get_successors(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
-                next_node = Node(next_state, curr_node, curr_node.path_cost + step_cost, curr_node.depth + 1)
+                next_node = Node(next_state, curr_node, curr_node.depth + 1)
                 queue.append(next_node)
-                enqueued_states += 1
+                num_enqueued_states += 1
 
-    return -2, enqueued_states
+    return -2, num_enqueued_states
 
 
-def ids(start_state):
+def ids(root):
     pass
 
 
-def astar1(root):
-    priority_queue = [(float('inf'), root)]
+def astar1(root, max_depth=10):
+    """
+    A* search with heuristic 1 (number of misplaced tiles) and a depth limit of 10
+    """
+    priority_queue = [(heuristic1(root.state), root)]
     heapq.heapify(priority_queue)
     expanded_states = {root.state}
-    enqueued_states = 0
+    num_enqueued_states = 0
 
     while priority_queue:
         _, curr_node = heapq.heappop(priority_queue)
-        if curr_node.state == GOAL_STATE:
-            return curr_node, enqueued_states
-        if curr_node.depth > MAX_DEPTH:
-            return -1, enqueued_states
-        for next_state, step_cost in get_successors(curr_node.state):
+        if curr_node.state == '7816*2543':
+            return curr_node, num_enqueued_states
+        if curr_node.depth > max_depth:
+            return -1, num_enqueued_states
+        for next_state in get_successors(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
-                cost = curr_node.path_cost + step_cost
-                next_node = Node(next_state, curr_node, cost, curr_node.depth + 1)
-                heapq.heappush(priority_queue, (cost + heuristic1(next_state), next_node))
-                enqueued_states += 1
+                next_node = Node(next_state, curr_node, curr_node.depth + 1)
+                heapq.heappush(priority_queue, (curr_node.depth + 1 + heuristic1(next_state), next_node))
+                num_enqueued_states += 1
 
-    return -2, enqueued_states
+    return -2, num_enqueued_states
 
 
-def astar2(root):
-    priority_queue = [(float('inf'), root)]
+def astar2(root, max_depth=10):
+    """
+    A* search with heuristic 2 (sum of manhattan distances from tile's current position to its correct position)
+    and a depth limit of 10
+    """
+    priority_queue = [(heuristic2(root.state), root)]
     heapq.heapify(priority_queue)
     expanded_states = {root.state}
-    enqueued_states = 0
+    num_enqueued_states = 0
 
     while priority_queue:
         _, curr_node = heapq.heappop(priority_queue)
-        if curr_node.state == GOAL_STATE:
-            return curr_node, enqueued_states
-        if curr_node.depth > MAX_DEPTH:
-            return -1, enqueued_states
-        for next_state, step_cost in get_successors(curr_node.state):
+        if curr_node.state == '7816*2543':
+            return curr_node, num_enqueued_states
+        if curr_node.depth > max_depth:
+            return -1, num_enqueued_states
+        for next_state in get_successors(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
-                cost = curr_node.path_cost + step_cost
-                next_node = Node(next_state, curr_node, cost, curr_node.depth + 1)
-                heapq.heappush(priority_queue, (cost + heuristic2(next_state), next_node))
-                enqueued_states += 1
+                next_node = Node(next_state, curr_node, curr_node.depth + 1)
+                heapq.heappush(priority_queue, (curr_node.depth + 1 + heuristic2(next_state), next_node))
+                num_enqueued_states += 1
 
-    return -2, enqueued_states
+    return -2, num_enqueued_states

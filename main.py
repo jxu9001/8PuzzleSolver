@@ -4,7 +4,6 @@
 
 import sys
 from searchAlgorithms import *
-import collections
 from utils import *
 from node import *
 
@@ -22,18 +21,18 @@ def main():
     # run the algorithms
     assert algorithm_name in ('dfs', 'bfs', 'ids', 'astar1', 'astar2')
     if algorithm_name == 'dfs':
-        goal_node, enqueued_states = dfs(root)
+        goal_node, num_enqueued_states = dfs(root)
     elif algorithm_name == 'bfs':
-        goal_node, enqueued_states = bfs(root)
+        goal_node, num_enqueued_states = bfs(root)
     # elif algorithm_name == 'ids':
     #     pass
     elif algorithm_name == 'astar1':
-        goal_node, enqueued_states = astar1(root)
+        goal_node, num_enqueued_states = astar1(root)
     else:
-        goal_node, enqueued_states = astar2(root)
+        goal_node, num_enqueued_states = astar2(root)
 
     # get and print the path from the start state to the goal state
-    pretty_print(goal_node, enqueued_states)
+    pretty_print(goal_node, num_enqueued_states)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,7 @@
 import collections
 
-GOAL_STATE = '7816*2543'
 
-
-def pretty_print(goal_node, enqueued_states):
+def pretty_print(goal_node, num_enqueued_states):
     """
     Pretty prints the path from the start state to the goal state.
     """
@@ -34,7 +32,7 @@ def pretty_print(goal_node, enqueued_states):
             print()
 
         print('Number of moves = {}'.format(n - 1))
-        print('Number of states enqueued = {}\n'.format(enqueued_states))
+        print('Number of states enqueued = {}\n'.format(num_enqueued_states))
         print('Note: * represents an empty tile')
 
 
@@ -70,7 +68,7 @@ def get_successors(state):
         s = list(state)
         s[location], s[empty_space] = s[empty_space], s[location]
         next_state = ''.join(s)
-        yield next_state, 1
+        yield next_state
 
 
 def heuristic1(state):
@@ -78,7 +76,7 @@ def heuristic1(state):
     Heuristic 1: number of misplaced tiles
     Note that the blank tile is not actually a tile so we don't count it
     """
-    return sum(t1 != t2 for t1, t2 in zip(state, GOAL_STATE) if t1.isdigit())
+    return sum(t1 != t2 for t1, t2 in zip(state, '7816*2543') if t1.isdigit())
 
 
 def heuristic2(state):
