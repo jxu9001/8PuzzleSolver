@@ -26,42 +26,43 @@ MAX_DEPTH = 10
 def dfs(start_state):
     """
     Tree search version of DFS with a depth limit of 10.
+    OR CAN WE USE GRAPH CAUSE TREE IS TOO ANNOYING (E.G. CYCLES)
     """
-    stack = [(Node(state=start_state, parent=None, path_cost=1, depth=0), 0, [])]
+    stack = [Node(state=start_state, parent=None, depth=0)]
+    visited = {start_state}
     enqueued_states = 0
 
     while stack:
-        curr_node, moves, path_to_goal = stack.pop()
+        curr_node = stack.pop()
         if curr_node.state == GOAL_STATE:
-            return moves, enqueued_states, path_to_goal + [curr_node.state]
-        # if moves > MAX_DEPTH:
-        #     return -1, enqueued_states, path_to_goal
-        for next_state in get_successors(curr_state):
-            stack.append((next_state, moves + 1, path_to_goal + [curr_state]))
+            return curr_node, enqueued_states
+        for next_state in get_successors(curr_node.state):
+            if next_state in visited:
+                continue
+            visited.add(next_state)
+            stack.append(Node(state=next_state, parent=curr_node, depth=curr_node.depth+1))
             enqueued_states += 1
 
-    return -1, enqueued_states, path_to_goal
+    return -1, enqueued_states
 
 
 def bfs(start_state):
     """
     Simple implementation of breadth-first search.
     """
-    queue = collections.deque([(start_state, 0, [])])
+    queue = collections.deque([Node(state=start_state, parent=None, depth=0)])
     visited = {start_state}
     enqueued_states = 0
 
     while queue:
-        curr_state, moves, path_to_goal = queue.popleft()
-        if curr_state == GOAL_STATE:
-            return moves, enqueued_states, path_to_goal + [curr_state]
-        for next_state in get_successors(curr_state):
+        curr_node = queue.popleft()
+        if curr_node.state == GOAL_STATE:
+            return curr_node, enqueued_states
+        for next_state in get_successors(curr_node.state):
             if next_state in visited:
                 continue
             visited.add(next_state)
-            queue.append((next_state, moves + 1, path_to_goal + [curr_state]))
+            queue.append(Node(state=next_state, parent=curr_node, depth=curr_node.depth+1))
             enqueued_states += 1
 
-    return -1, enqueued_states, path_to_goal
-
-
+    return -1, enqueued_states
