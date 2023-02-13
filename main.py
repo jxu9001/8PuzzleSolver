@@ -6,6 +6,7 @@ import sys
 from searchAlgorithms import *
 import collections
 from utils import *
+from node import *
 
 
 def main():
@@ -16,20 +17,23 @@ def main():
     # read the input file
     with open(input_file_name) as f:
         start_state = ''.join(f.readline().split())
+    root = Node(state=start_state)
 
     # run the algorithms
+    assert algorithm_name in ('dfs', 'bfs', 'ids', 'astar1', 'astar2')
     if algorithm_name == 'dfs':
-        goal_node, enqueued_states = dfs(start_state)
+        goal_node, enqueued_states = dfs(root)
     elif algorithm_name == 'bfs':
-        goal_node, enqueued_states = bfs(start_state)
+        goal_node, enqueued_states = bfs(root)
+    # elif algorithm_name == 'ids':
+    #     pass
+    elif algorithm_name == 'astar1':
+        goal_node, enqueued_states = astar1(root)
+    else:
+        goal_node, enqueued_states = astar2(root)
 
     # get and print the path from the start state to the goal state
-    path_to_goal = collections.deque()
-    while goal_node.parent is not None:
-        path_to_goal.appendleft(goal_node.state)
-        goal_node = goal_node.parent
-    path_to_goal.appendleft(start_state)
-    pretty_print(enqueued_states, path_to_goal)
+    pretty_print(goal_node, enqueued_states)
 
 
 if __name__ == "__main__":
