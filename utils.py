@@ -78,7 +78,7 @@ def heuristic1(state):
     Heuristic 1: number of misplaced tiles
     Note that the blank tile is not actually a tile so we don't count it
     """
-    return sum(1 for t1, t2 in zip(state, GOAL_STATE) if t1 != t2 and t1.isdigit())
+    return sum(t1 != t2 for t1, t2 in zip(state, GOAL_STATE) if t1.isdigit())
 
 
 def heuristic2(state):
