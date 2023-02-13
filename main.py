@@ -2,10 +2,9 @@
 # CS 6364 Spring 2023 Homework 1 (Sliding Puzzle Solver)
 # Instructor: Professor Dan Moldovan
 
-import sys
 from search_algorithms import *
 from utils import *
-from node import *
+import sys
 
 
 def main():

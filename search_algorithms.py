@@ -1,5 +1,5 @@
+from node import Node
 from utils import *
-from node import *
 import heapq
 
 
