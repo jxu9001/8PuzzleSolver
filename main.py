@@ -3,7 +3,7 @@
 # Instructor: Professor Dan Moldovan
 
 import sys
-from searchAlgorithms import *
+from search_algorithms import *
 from utils import *
 from node import *
 
@@ -24,8 +24,8 @@ def main():
         goal_node, num_enqueued_states = dfs(root)
     elif algorithm_name == 'bfs':
         goal_node, num_enqueued_states = bfs(root)
-    # elif algorithm_name == 'ids':
-    #     pass
+    elif algorithm_name == 'ids':
+        goal_node, num_enqueued_states = ids(root)
     elif algorithm_name == 'astar1':
         goal_node, num_enqueued_states = astar1(root)
     else:

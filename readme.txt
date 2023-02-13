@@ -35,6 +35,6 @@ running astar1:
 running astar2:
 
 ANALYSIS OF MY TWO HEURISTICS
-Heuristic 1: # of misplaced tiles (+ moves made so far) maybe not
-Heuristic 2: Σ(manhattan distance from each tile to its goal position) (+ moves made so far) maybe not
+Heuristic 1: # of misplaced tiles
+Heuristic 2: Σ(manhattan distance from each tile to its goal position)
 
