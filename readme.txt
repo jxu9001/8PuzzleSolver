@@ -191,7 +191,7 @@ output of "python3 main.py astar2 input2.txt":
 
     Note: * represents an empty tile
 
-ANALYSIS OF MY TWO HEURISTICS
+*** ANALYSIS OF MY TWO HEURISTICS ***
 I used the two heuristics discussed in the lecture slides.
     h1: total # of misplaced tiles
     h2: Σ(manhattan distance from each tile to its goal position)
