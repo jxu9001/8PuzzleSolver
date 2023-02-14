@@ -26,9 +26,9 @@ def main():
     elif algorithm_name == 'ids':
         goal_node, num_enqueued_states = ids(root)
     elif algorithm_name == 'astar1':
-        goal_node, num_enqueued_states = astar1(root)
+        goal_node, num_enqueued_states = astar(root, 1)
     else:
-        goal_node, num_enqueued_states = astar2(root)
+        goal_node, num_enqueued_states = astar(root, 2)
 
     # get and print the path from the start state to the goal state
     pretty_print(goal_node, num_enqueued_states)

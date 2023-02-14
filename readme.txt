@@ -195,4 +195,3 @@ ANALYSIS OF MY TWO HEURISTICS
 I used the two heuristics discussed in the lecture slides.
 Heuristic 1: # of misplaced tiles
 Heuristic 2: Σ(manhattan distance from each tile to its goal position)
-

@@ -1,5 +1,5 @@
 import collections
-MAX_DEPTH = 10
+MAX_DEPTH = 1000000000000000  # can set this to a very large value if needed
 GOAL_STATE = '7816*2543'
 
 
@@ -36,9 +36,9 @@ def pretty_print(goal_node, num_enqueued_states):
         print('Note: * represents an empty tile')
 
 
-def get_successors(state):
+def get_next_state(state):
     """
-    For a given state, return the next states and step costs.
+    For a given state, return the next states.
     A successor state is found by swapping the empty tile with one of its neighbors.
     States are represented as strings b/c strings are hashable (i.e., they can be added to python sets).
     For example, the following state
@@ -76,7 +76,7 @@ def heuristic1(state, goal_state=GOAL_STATE):
     Heuristic 1: number of misplaced tiles
     Note that the blank tile is not actually a tile so we don't count it
     """
-    return sum(t1 != t2 for t1, t2 in zip(state, goal_state) if t1.isdigit())
+    return sum(tile1 != tile2 for tile1, tile2 in zip(state, goal_state) if tile1.isdigit())
 
 
 def heuristic2(state, goal_state=GOAL_STATE):
@@ -97,4 +97,4 @@ def heuristic2(state, goal_state=GOAL_STATE):
         '8': (goal_state.find('8') // 3, goal_state.find('8') % 3)
     }
 
-    return sum(abs(i // 3 - goal_pos[t][0]) + abs(i % 3 - goal_pos[t][1]) for i, t in enumerate(state) if t.isdigit())
+    return sum(abs(i // 3 - goal_pos[tile][0]) + abs(i % 3 - goal_pos[tile][1]) for i, tile in enumerate(state) if tile.isdigit())
