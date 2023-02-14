@@ -73,16 +73,16 @@ def get_next_state(state):
 
 def heuristic1(state, goal_state=GOAL_STATE):
     """
-    Heuristic 1: number of misplaced tiles
-    Note that the blank tile is not actually a tile so we don't count it
+    Heuristic 1: number of misplaced tiles.
+    Note that the blank tile is not actually a tile, so we don't count it.
     """
     return sum(tile1 != tile2 for tile1, tile2 in zip(state, goal_state) if tile1.isdigit())
 
 
 def heuristic2(state, goal_state=GOAL_STATE):
     """
-    Heuristic 2: sum of manhattan distances from each tile's curr position to its goal position
-    Note that the blank tile is not actually a tile so we don't count it
+    Heuristic 2: sum of manhattan distances from each tile's curr position to its goal position.
+    Note that the blank tile is not actually a tile, so we don't count it.
     """
     # formula to convert 1d array index to 2d array index when 2d array has dims num_rows, num_cols
     # i = 1d // num_cols, j = 1d % num_rows
