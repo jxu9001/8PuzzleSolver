@@ -1,5 +1,5 @@
 import collections
-MAX_DEPTH = 1000000000000000  # can set this to a very large value if needed
+MAX_DEPTH = 10  # can set this to a very large value for debugging purposes
 GOAL_STATE = '7816*2543'
 
 
