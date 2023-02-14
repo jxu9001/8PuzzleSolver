@@ -63,10 +63,10 @@ def get_next_states(state):
         8: [5, 7]
     }
 
-    empty_space = state.find('*')
-    for location in swap_locations[empty_space]:
+    empty_tile = state.find('*')
+    for location in swap_locations[empty_tile]:
         s = list(state)
-        s[location], s[empty_space] = s[empty_space], s[location]
+        s[location], s[empty_tile] = s[empty_tile], s[location]
         next_state = ''.join(s)
         yield next_state
 

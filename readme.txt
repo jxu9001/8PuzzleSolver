@@ -27,6 +27,7 @@ input2.txt represents the following initial state:
     +---+---+---+
     | 5 | 3 | 1 |
     +---+---+---+
+
 output of "python3 main.py dfs input2.txt":
     ERROR: Failed to find a solution at or before depth = 10
 
