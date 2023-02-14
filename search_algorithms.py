@@ -17,7 +17,7 @@ def dfs(root, max_depth=MAX_DEPTH):
             return curr_node, num_enqueued_states
         if curr_node.depth > max_depth:
             return -1, num_enqueued_states
-        for next_state in get_next_state(curr_node.state):
+        for next_state in get_next_states(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
                 next_node = Node(state=next_state, parent=curr_node, depth=curr_node.depth + 1)
@@ -40,7 +40,7 @@ def bfs(root):
         curr_node = queue.popleft()
         if curr_node.state == GOAL_STATE:
             return curr_node, num_enqueued_states
-        for next_state in get_next_state(curr_node.state):
+        for next_state in get_next_states(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
                 next_node = Node(state=next_state, parent=curr_node, depth=curr_node.depth + 1)
@@ -65,7 +65,7 @@ def ids(root, max_depth=MAX_DEPTH):
                 return curr_node, num_enqueued_states
             # only enqueue successor states if we have not reached the depth limit
             if curr_node.depth < depth:
-                for next_state in get_next_state(curr_node.state):
+                for next_state in get_next_states(curr_node.state):
                     if next_state not in expanded_states:
                         expanded_states.add(next_state)
                         next_node = Node(state=next_state, parent=curr_node, depth=curr_node.depth + 1)
@@ -90,7 +90,7 @@ def astar(root, heuristic, max_depth=MAX_DEPTH):
             return curr_node, num_enqueued_states
         if curr_node.depth > max_depth:
             return -1, num_enqueued_states
-        for next_state in get_next_state(curr_node.state):
+        for next_state in get_next_states(curr_node.state):
             if next_state not in expanded_states:
                 expanded_states.add(next_state)
                 # g(n) = curr_node.depth + 1

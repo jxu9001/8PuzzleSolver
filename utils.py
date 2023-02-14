@@ -36,7 +36,7 @@ def pretty_print(goal_node, num_enqueued_states):
         print('Note: * represents an empty tile')
 
 
-def get_next_state(state):
+def get_next_states(state):
     """
     For a given state, return the next states.
     A successor state is found by swapping the empty tile with one of its neighbors.
