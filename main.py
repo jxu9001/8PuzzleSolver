@@ -1,5 +1,5 @@
 # Jerry Xu
-# CS 6364 Spring 2023 Homework 1 (Sliding Puzzle Solver)
+# CS 6364 Spring 2023 Homework 1 (8 Puzzle Solver)
 # Instructor: Professor Dan Moldovan
 
 from search_algorithms import *

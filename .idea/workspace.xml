@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2498519e-0d71-45a7-8f8e-d391969a5d01" name="Changes" comment="reformated readme.txt">
+    <list default="true" id="2498519e-0d71-45a7-8f8e-d391969a5d01" name="Changes" comment="more reformatting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,11 @@
       <workItem from="1676371662637" duration="330000" />
       <workItem from="1676371999796" duration="113000" />
       <workItem from="1676372117204" duration="2616000" />
-      <workItem from="1676392720874" duration="657000" />
+      <workItem from="1676392720874" duration="985000" />
+      <workItem from="1676427273370" duration="4441000" />
+      <workItem from="1676435508321" duration="19000" />
+      <workItem from="1676496576138" duration="754000" />
+      <workItem from="1676530373227" duration="1016000" />
     </task>
     <task id="LOCAL-00001" summary="renamed get_next_state to get_next_states">
       <created>1676372339457</created>
@@ -73,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676392516364</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="more reformatting">
+      <created>1676393666129</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676393666129</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +105,7 @@
     <MESSAGE value="renamed get_next_state to get_next_states" />
     <MESSAGE value="asdf" />
     <MESSAGE value="reformated readme.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformated readme.txt" />
+    <MESSAGE value="more reformatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="more reformatting" />
   </component>
 </project>
