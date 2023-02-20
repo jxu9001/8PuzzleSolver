@@ -81,7 +81,7 @@ output of "python3 main.py ids input2.txt":
     5 4 3
 
     Number of moves = 9
-    Number of states enqueued = 943
+    Number of states enqueued = 944
 
     Note: * represents an empty tile
 
@@ -135,7 +135,7 @@ output of "python3 main.py astar1 input2.txt":
     5 4 3
 
     Number of moves = 9
-    Number of states enqueued = 57
+    Number of states enqueued = 58
 
     Note: * represents an empty tile
 
@@ -189,7 +189,7 @@ output of "python3 main.py astar2 input2.txt":
     5 4 3
 
     Number of moves = 9
-    Number of states enqueued = 27
+    Number of states enqueued = 28
 
     Note: * represents an empty tile
 
@@ -198,9 +198,9 @@ I used the two heuristics discussed in the lecture slides.
     h1: total # of misplaced tiles
     h2: Σ(manhattan distance from each tile to its goal position)
 
-Both h1 and h2 clearly underestimate of the moves needed to move a misplaced tile to its correct position. h1 assumes
-that it takes one move to do so, and h2 does not account for the non-empty tiles between the misplaced tile and its
-correct position. Thus, both h1 and h2 are admissible.
+h1 assumes that it takes one move to move a misplaced tile to its correct position, and h2 does not account for the
+non-empty tiles between the misplaced tile and its correct position. Both h1 and h2 underestimate the number of moves
+needed to move a misplaced tile to its correct position and are therefore admissible.
 
 A heuristic h(n) is consistent if h(n) <= path_cost(n, n') + h(n'). In this problem, the path_cost is 1 because state n'
 is generated from state n by swapping the empty tile with an adjacent tile. Thus, consistency requires that

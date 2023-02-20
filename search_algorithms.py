@@ -5,11 +5,11 @@ import heapq
 
 def dfs(root, max_depth=MAX_DEPTH):
     """
-    Depth-first search with a depth limit of 10
+    Depth-first search with a depth limit of MAX_DEPTH
     """
     stack = [root]
     expanded_states = {root.state}
-    num_enqueued_states = 0
+    num_enqueued_states = 1
 
     while stack:
         curr_node = stack.pop()
@@ -34,7 +34,7 @@ def bfs(root):
     """
     queue = collections.deque([root])
     expanded_states = {root.state}
-    num_enqueued_states = 0
+    num_enqueued_states = 1
 
     while queue:
         curr_node = queue.popleft()
@@ -52,9 +52,9 @@ def bfs(root):
 
 def ids(root, max_depth=MAX_DEPTH):
     """
-    Iterative deepening search with a depth limit of 10
+    Iterative deepening search with a depth limit of MAX_DEPTH
     """
-    num_enqueued_states = 0
+    num_enqueued_states = 1
 
     for depth in range(max_depth + 1):
         stack = [root]
@@ -77,12 +77,12 @@ def ids(root, max_depth=MAX_DEPTH):
 
 def astar(root, heuristic, max_depth=MAX_DEPTH):
     """
-    A* search with two different heuristics and a depth limit of 10
+    A* search with two different heuristics and a depth limit of MAX_DEPTH
     """
     priority_queue = [(heuristic1(root.state), root)] if heuristic == 1 else [(heuristic2(root.state), root)]
     heapq.heapify(priority_queue)
     expanded_states = {root.state}
-    num_enqueued_states = 0
+    num_enqueued_states = 1
 
     while priority_queue:
         _, curr_node = heapq.heappop(priority_queue)

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2498519e-0d71-45a7-8f8e-d391969a5d01" name="Changes" comment="more reformatting">
+    <list default="true" id="2498519e-0d71-45a7-8f8e-d391969a5d01" name="Changes" comment="zipped for submission">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_algorithms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,8 @@
       <workItem from="1676427273370" duration="4441000" />
       <workItem from="1676435508321" duration="19000" />
       <workItem from="1676496576138" duration="754000" />
-      <workItem from="1676530373227" duration="1016000" />
+      <workItem from="1676530373227" duration="2675000" />
+      <workItem from="1676921494574" duration="2327000" />
     </task>
     <task id="LOCAL-00001" summary="renamed get_next_state to get_next_states">
       <created>1676372339457</created>
@@ -84,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676393666129</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="zipped for submission">
+      <created>1676593435054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676593435054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +114,7 @@
     <MESSAGE value="asdf" />
     <MESSAGE value="reformated readme.txt" />
     <MESSAGE value="more reformatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="more reformatting" />
+    <MESSAGE value="zipped for submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="zipped for submission" />
   </component>
 </project>
