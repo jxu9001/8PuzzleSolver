@@ -99,7 +99,7 @@ def astar(root, heuristic, max_depth=MAX_DEPTH):
                 next_node = Node(state=next_state, parent=curr_node, depth=curr_node.depth + 1)
                 if heuristic == 1:
                     total_cost = curr_node.depth + 1 + heuristic1(next_state)
-                elif heuristic == 2:
+                else:
                     total_cost = curr_node.depth + 1 + heuristic2(next_state)
                 heapq.heappush(priority_queue, (total_cost, next_node))
                 num_enqueued_states += 1

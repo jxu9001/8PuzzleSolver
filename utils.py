@@ -51,6 +51,7 @@ def get_next_states(state):
         +---+---+---+
     is represented by the string '67182*543'.
     """
+    # up, left, right, down
     swap_locations = {
         0: [1, 3],
         1: [0, 2, 4],
