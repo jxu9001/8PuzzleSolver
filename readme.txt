@@ -14,182 +14,134 @@ algorithm_name is one of:
     astar2 (a* search with heuristic 2)
 input_file_name is one of:
     input1.txt (easy, optimal solution has 5 moves)
-    input2.txt (medium, optimal solution has 9 moves)
+    input1.txt (medium, optimal solution has 9 moves)
     input3.txt (hard, optimal solution has 12 moves)
     input4.txt (very hard, optimal solution has 30 moves)
 
-*** SAMPLE INPUT AND OUTPUTS FOR INPUT2.TXT ***
-input2.txt represents the following initial state:
+*** SAMPLE INPUT AND OUTPUTS FOR input1.txt ***
+input1.txt represents the following initial state:
     +---+---+---+
-    | 7 |   | 2 |
+    | 6 | 7 | 1 |
     +---+---+---+
-    | 6 | 4 | 8 |
+    | 8 | 2 |   |
     +---+---+---+
-    | 5 | 3 | 1 |
+    | 5 | 4 | 3 |
     +---+---+---+
 
-output of "python3 main.py dfs input2.txt":
+output of "python3 main.py dfs input1.txt":
     ERROR: Failed to find a solution at or before depth = 10
 
-output of "python3 main.py ids input2.txt":
+output of "python3 main.py ids input1.txt":
     Input (Any random position of the tiles):
 
-    7 * 2
-    6 4 8
-    5 3 1
+    6 7 1
+    8 2 *
+    5 4 3
 
     Output (List of states starting from input to goal state, if found):
 
-    7 * 2 (Initial input state)
-    6 4 8
-    5 3 1
-
-    7 2 *
-    6 4 8
-    5 3 1
-
-    7 2 8
-    6 4 *
-    5 3 1
-
-    7 2 8
-    6 4 1
-    5 3 *
-
-    7 2 8
-    6 4 1
-    5 * 3
-
-    7 2 8
-    6 * 1
+    6 7 1 (Initial input state)
+    8 2 *
     5 4 3
 
-    7 * 8
-    6 2 1
+    6 7 1
+    8 * 2
     5 4 3
 
-    7 8 *
-    6 2 1
+    6 7 1
+    * 8 2
     5 4 3
 
-    7 8 1
-    6 2 *
+    * 7 1
+    6 8 2
+    5 4 3
+
+    7 * 1
+    6 8 2
     5 4 3
 
     7 8 1 (Goal state)
     6 * 2
     5 4 3
 
-    Number of moves = 9
-    Number of states enqueued = 944
+    Number of moves = 5
+    Number of states enqueued = 99
 
     Note: * represents an empty tile
 
-output of "python3 main.py astar1 input2.txt":
+output of "python3 main.py astar1 input1.txt":
     Input (Any random position of the tiles):
 
-    7 * 2
-    6 4 8
-    5 3 1
+    6 7 1
+    8 2 *
+    5 4 3
 
     Output (List of states starting from input to goal state, if found):
 
-    7 * 2 (Initial input state)
-    6 4 8
-    5 3 1
-
-    7 2 *
-    6 4 8
-    5 3 1
-
-    7 2 8
-    6 4 *
-    5 3 1
-
-    7 2 8
-    6 4 1
-    5 3 *
-
-    7 2 8
-    6 4 1
-    5 * 3
-
-    7 2 8
-    6 * 1
+    6 7 1 (Initial input state)
+    8 2 *
     5 4 3
 
-    7 * 8
-    6 2 1
+    6 7 1
+    8 * 2
     5 4 3
 
-    7 8 *
-    6 2 1
+    6 7 1
+    * 8 2
     5 4 3
 
-    7 8 1
-    6 2 *
+    * 7 1
+    6 8 2
+    5 4 3
+
+    7 * 1
+    6 8 2
     5 4 3
 
     7 8 1 (Goal state)
     6 * 2
     5 4 3
 
-    Number of moves = 9
-    Number of states enqueued = 58
+    Number of moves = 5
+    Number of states enqueued = 14
 
     Note: * represents an empty tile
 
-output of "python3 main.py astar2 input2.txt":
+output of "python3 main.py astar2 input1.txt":
     Input (Any random position of the tiles):
 
-    7 * 2
-    6 4 8
-    5 3 1
+    6 7 1
+    8 2 *
+    5 4 3
 
     Output (List of states starting from input to goal state, if found):
 
-    7 * 2 (Initial input state)
-    6 4 8
-    5 3 1
-
-    7 2 *
-    6 4 8
-    5 3 1
-
-    7 2 8
-    6 4 *
-    5 3 1
-
-    7 2 8
-    6 4 1
-    5 3 *
-
-    7 2 8
-    6 4 1
-    5 * 3
-
-    7 2 8
-    6 * 1
+    6 7 1 (Initial input state)
+    8 2 *
     5 4 3
 
-    7 * 8
-    6 2 1
+    6 7 1
+    8 * 2
     5 4 3
 
-    7 8 *
-    6 2 1
+    6 7 1
+    * 8 2
     5 4 3
 
-    7 8 1
-    6 2 *
+    * 7 1
+    6 8 2
+    5 4 3
+
+    7 * 1
+    6 8 2
     5 4 3
 
     7 8 1 (Goal state)
     6 * 2
     5 4 3
 
-    Number of moves = 9
-    Number of states enqueued = 28
+    Number of moves = 5
+    Number of states enqueued = 12
 
     Note: * represents an empty tile
 

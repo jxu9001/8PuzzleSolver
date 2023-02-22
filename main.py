@@ -4,13 +4,13 @@
 
 from search_algorithms import *
 from utils import *
-import sys
+from sys import argv
 
 
 def main():
     # command line args
-    algorithm_name = sys.argv[1]
-    input_file_name = sys.argv[2]
+    algorithm_name = argv[1]
+    input_file_name = argv[2]
 
     # read the input file
     with open(input_file_name) as f:

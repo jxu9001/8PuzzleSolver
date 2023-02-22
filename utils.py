@@ -1,4 +1,4 @@
-import collections
+from collections import deque
 MAX_DEPTH = 10  # can set this to a very large value for debugging purposes
 GOAL_STATE = '7816*2543'
 
@@ -10,7 +10,7 @@ def pretty_print(goal_node, num_enqueued_states):
     if goal_node == -1:
         print('ERROR: Failed to find a solution at or before depth = {}'.format(MAX_DEPTH))
     else:
-        path_to_goal = collections.deque()
+        path_to_goal = deque()
         while goal_node is not None:
             path_to_goal.appendleft(goal_node.state)
             goal_node = goal_node.parent

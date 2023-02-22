@@ -1,6 +1,6 @@
 from node import Node
 from utils import *
-import heapq
+from heapq import heapify, heappush, heappop
 
 
 def dfs(root, max_depth=MAX_DEPTH):
@@ -32,7 +32,7 @@ def bfs(root):
     Breadth-first search with no depth limit
     (not actually required, but useful for sanity checking)
     """
-    queue = collections.deque([root])
+    queue = deque([root])
     expanded_states = {root.state}
     num_enqueued_states = 1
 
@@ -80,12 +80,12 @@ def astar(root, heuristic, max_depth=MAX_DEPTH):
     A* search with two different heuristics and a depth limit of MAX_DEPTH
     """
     priority_queue = [(heuristic1(root.state), root)] if heuristic == 1 else [(heuristic2(root.state), root)]
-    heapq.heapify(priority_queue)
+    heapify(priority_queue)
     expanded_states = {root.state}
     num_enqueued_states = 1
 
     while priority_queue:
-        _, curr_node = heapq.heappop(priority_queue)
+        _, curr_node = heappop(priority_queue)
         if curr_node.state == GOAL_STATE:
             return curr_node, num_enqueued_states
         if curr_node.depth > max_depth:
@@ -101,7 +101,7 @@ def astar(root, heuristic, max_depth=MAX_DEPTH):
                     total_cost = curr_node.depth + 1 + heuristic1(next_state)
                 else:
                     total_cost = curr_node.depth + 1 + heuristic2(next_state)
-                heapq.heappush(priority_queue, (total_cost, next_node))
+                heappush(priority_queue, (total_cost, next_node))
                 num_enqueued_states += 1
 
     return -1, num_enqueued_states
