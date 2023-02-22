@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2498519e-0d71-45a7-8f8e-d391969a5d01" name="Changes" comment="i forgot what i changed lmfao">
+    <list default="true" id="2498519e-0d71-45a7-8f8e-d391969a5d01" name="Changes" comment="updated readme.txt to contain the results from the input given in the assignment pdf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_algorithms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +84,7 @@
       <workItem from="1676530373227" duration="2675000" />
       <workItem from="1676921494574" duration="6524000" />
       <workItem from="1677096894743" duration="1779000" />
+      <workItem from="1677100925999" duration="2417000" />
     </task>
     <task id="LOCAL-00001" summary="renamed get_next_state to get_next_states">
       <created>1676372339457</created>
@@ -137,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676937023924</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated readme.txt to contain the results from the input given in the assignment pdf">
+      <created>1677101234832</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677101234832</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +167,8 @@
     <MESSAGE value="zipped for submission" />
     <MESSAGE value="edited readme.txt and set num_enqueued_states to 1 from 0" />
     <MESSAGE value="i forgot what i changed lmfao" />
-    <option name="LAST_COMMIT_MESSAGE" value="i forgot what i changed lmfao" />
+    <MESSAGE value="updated readme.txt to contain the results from the input given in the assignment pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated readme.txt to contain the results from the input given in the assignment pdf" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/8PuzzleSolver$main.coverage" NAME="main Coverage Results" MODIFIED="1676927616348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
