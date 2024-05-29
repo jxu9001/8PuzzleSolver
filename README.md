@@ -9,14 +9,14 @@ How to run:
 3. Press enter
 
 algorithm_name is one of:
-    dfs (depth first search)
-    bfs (breadth first search (not required, but useful to calculate the # of moves in the optimal solutions))
-    ids (iterative deepening search)
-    astar1 (a* search with heuristic 1)
-    astar2 (a* search with heuristic 2)
+1. dfs (depth first search)
+2. bfs (breadth first search (not required, but useful to calculate the # of moves in the optimal solutions))
+3. ids (iterative deepening search)
+4. astar1 (a* search with heuristic 1)
+5. astar2 (a* search with heuristic 2)
 
 input_file_name is one of:
-    input1.txt (easy, optimal solution has 5 moves)
-    input1.txt (medium, optimal solution has 9 moves)
-    input3.txt (hard, optimal solution has 12 moves)
-    input4.txt (very hard, optimal solution has 30 moves)
+1. input1.txt (easy, optimal solution has 5 moves)
+2. input2.txt (medium, optimal solution has 9 moves)
+3. input3.txt (hard, optimal solution has 12 moves)
+4. input4.txt (very hard, optimal solution has 30 moves)
